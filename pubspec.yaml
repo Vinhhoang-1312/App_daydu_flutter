@@ -1,0 +1,44 @@
+name: day_du_app
+description: "A new Flutter project."
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  smooth_page_indicator: ^1.2.1
+  get: ^4.6.5
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  dio: ^5.0.0
+  get_storage: ^2.1.1
+  font_awesome_flutter: ^10.6.0
+  flutter_carousel_widget: ^3.1.0
+  intl: ^0.18.1
+  flutter_switch: ^0.3.2
+  image_picker: ^1.0.7 # Hoặc phiên bản mới nhất
+  solar_icons: ^0.0.1
+  dotted_border: ^2.0.0
+  iconsax: ^0.0.8
+  http: ^1.3.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/ # Đảm bảo thư mục này chứa intro1.png, intro2.png, intro3.png
+    - assets/icons/ # Đảm bảo thư mục này chứa icon_black.png
+    - assets/fonts/ # Ensure this folder exists and contains Roboto font files
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Roboto-Light.ttf
+          weight: 300
