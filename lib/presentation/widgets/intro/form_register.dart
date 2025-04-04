@@ -14,10 +14,11 @@ class _RegisterFormState extends State<RegisterForm> {
 
   final TextEditingController _apartmentTypeController =
       TextEditingController();
-  final TextEditingController _apartmentCodeController =
-      TextEditingController();
+
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
+      TextEditingController();
+  final TextEditingController _apartmentCodeController =
       TextEditingController();
   bool _isObscure = true;
 
@@ -98,7 +99,7 @@ class _RegisterFormState extends State<RegisterForm> {
             onChanged: (value) {
               setState(() {
                 _selectedApartmentType = value; // Lưu giá trị được chọn
-                _apartmentCodeController.text =
+                _apartmentTypeController.text =
                     value ?? ""; // Cập nhật vào controller
               });
             },

@@ -28,7 +28,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Image.asset("assets/images/register.png", height: 140),
                 const SizedBox(height: 40),
                 const Text(
-                  "Đăng ký",
+                  "Tạo tài khoản",
                   style: TextStyle(
                     fontFamily: 'Roboto', // Đặt font chữ Roboto
                     fontWeight: FontWeight.w600, // Font-weight 500

@@ -1,8 +1,10 @@
 //import 'package:day_du_app/config/theme/theme.dart';
+import 'package:day_du_app/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../widgets/intro/splash_content.dart';
 import 'dart:ui' as ui;
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class IntroManager extends StatefulWidget {
   const IntroManager({super.key});
@@ -48,7 +50,7 @@ class _IntroManagerState extends State<IntroManager> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFC62E2E), // Màu nền đỏ
+      backgroundColor: AppColors.primaryRed, // Màu nền đỏ
       body: Stack(
         children: [
           // Container trắng chiếm 3/4 màn hình phía trên
@@ -57,8 +59,8 @@ class _IntroManagerState extends State<IntroManager> {
             left: 0,
             right: 0,
             child: ClipRRect(
-              borderRadius: const BorderRadius.vertical(
-                bottom: Radius.circular(30), // Bo góc phía dưới
+              borderRadius: BorderRadius.vertical(
+                bottom: Radius.circular(30.r), // Bo góc phía dưới
               ),
               child: Container(
                 height:
@@ -86,36 +88,42 @@ class _IntroManagerState extends State<IntroManager> {
           ),
           // SmoothPageIndicator và nút "Bỏ qua"
           Positioned(
-            top:
-                MediaQuery.of(context).size.height * 0.01, // Đặt dưới Container
-            left: 20,
-            right: 20,
+            top: 10.h,
+            // MediaQuery.of(context).size.height * 0.01, // Đặt dưới Container
+            left: 20.w,
+            right: 20.w,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SmoothPageIndicator(
                   controller: pageController,
                   count: splashContent.length,
-                  effect: const WormEffect(
+                  effect: WormEffect(
                     activeDotColor: Color(0xFFC62E2E),
                     dotColor: Colors.grey,
-                    dotHeight: 10,
-                    dotWidth: 10,
+                    dotHeight: 10.h,
+                    dotWidth: 10.w,
                   ),
                 ),
                 currentIndex < splashContent.length - 1
                     ? TextButton(
                       onPressed: onSkip,
-                      child: const Text(
+                      child: Text(
                         'Bỏ qua',
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14.sp, // Font-size tự động điều chỉnh
+                        ),
                       ),
                     )
                     : TextButton(
                       onPressed: onSkip,
-                      child: const Text(
+                      child: Text(
                         'Bắt đầu',
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14.sp, // Font-size tự động điều chỉnh
+                        ),
                       ),
                     ),
               ],
@@ -123,15 +131,15 @@ class _IntroManagerState extends State<IntroManager> {
           ),
           // Hình tròn nằm ở giữa với nút black_button.png
           Positioned(
-            bottom: 162,
+            bottom: 150.h,
             left: 0,
             right: 0,
             child: Center(
               child: GestureDetector(
                 onTap: onNext, // Gọi hàm onNext khi bấm vào nút
                 child: Container(
-                  height: 85, // Kích thước hình tròn
-                  width: 85,
+                  height: 85.h, // Kích thước hình tròn
+                  width: 85.w,
                   decoration: BoxDecoration(
                     color: const Color(0xFFC62E2E), // Màu đỏ
                     shape: BoxShape.circle, // Hình tròn
@@ -146,8 +154,8 @@ class _IntroManagerState extends State<IntroManager> {
                   child: Center(
                     child: Image.asset(
                       'assets/icons/black_button.png', // Đường dẫn đến nút
-                      height: 60, // Kích thước nút
-                      width: 60,
+                      height: 60.h, // Kích thước nút
+                      width: 60.w,
                     ),
                   ),
                 ),
@@ -156,21 +164,23 @@ class _IntroManagerState extends State<IntroManager> {
           ),
           //Nút "Tiếp theo" hoặc "Bắt đầu"
           Positioned(
-            bottom: 40,
-            left: (MediaQuery.of(context).size.width - 200) / 2, //căn giữa
+            bottom: 40.h,
+            // left: (MediaQuery.of(context).size.width - 200) / 2, //căn giữa
+            left: (1.sw - 200.w) / 2, // Căn giữa
+
             child: GestureDetector(
               onTap: (onNext),
               child: Container(
-                height: 56,
-                width: 200,
+                height: 56.h,
+                width: 200.w,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(25), // Rounded edges
+                  borderRadius: BorderRadius.circular(25.r), // Rounded edges
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.2),
-                      blurRadius: 10,
-                      spreadRadius: 2,
+                      blurRadius: 10.r,
+                      spreadRadius: 2.r,
                     ),
                   ],
                 ),
@@ -181,7 +191,7 @@ class _IntroManagerState extends State<IntroManager> {
                       : "Bắt đầu",
                   style: TextStyle(
                     color: const Color(0xFFC62E2E), // Màu đỏ
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
